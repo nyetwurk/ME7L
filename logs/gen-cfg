@@ -1,0 +1,55 @@
+#!/usr/bin/perl
+
+use strict 'vars';
+
+use Getopt::Std;
+use File::Basename;
+
+our $opt_t='example_template.cfg';
+
+getopts("t:") || die("usage: gen-cfg [-t template] list.lst ..");
+
+die("usage: gen-cfg [-t template] list.lst ..") unless (scalar(@ARGV)>=1);
+
+open(TEMPLATE, '<', $opt_t) || die("Can't open $opt_t");
+
+my %list;
+
+foreach my $file (@ARGV) {
+    my($fn, $dir, $suffix) = fileparse($file, qr/\.[^.]*/);
+    die("Would overwrite input file $fn.cfg. Use a different suffix") if $suffix eq '.cfg';
+    open(LIST, '<', $file) || die ("Can't open $file");
+
+    %{$list{$fn}{'vars'}}=();
+    while(<LIST>) {
+	chomp;
+	${$list{$fn}{'vars'}}{$_}=1;
+    }
+    my $ofn = $dir.$fn.".cfg";
+    open($list{$fn}{'out'}, '>', $ofn)
+	|| die ("Can't open $ofn for writing");
+    print("Generating $fn.cfg from $opt_t and $file\n");
+}
+
+while(<TEMPLATE>) {
+    my $line = $_;
+    while((my $fn, my $l) = each %list) {
+	my $out = $line;
+	for my $v (keys %{$l->{'vars'}}) {
+	    chomp $v;
+	    if ($out =~ s/^;$v(\s)/$v \1/) {
+		#print "got $v in $fn\n";
+		delete(${$list{$fn}{'vars'}}{$v});
+		break;
+	    }
+	}
+	print {$l->{'out'}} $out;
+    }
+}
+
+while((my $fn, my $l) = each %list) {
+    for my $v (keys %{$l->{'vars'}}) {
+	#print "did not get $v in $fn\n";
+	print {$l->{'out'}} "$v\n";
+    }
+}

@@ -1,0 +1,14 @@
+dzwb		, {}	, 0x380CAD,	1,	0x0000, {°KW}	, 0, 0,	0.75,		0, {}
+wkrdy		, {}	, 0x00F9B4,	1,	0x0000, {°KW}	, 0, 0,	-0.75,		0, {}
+zaldy		, {}	, 0x380C51,	1,	0x0000, {°KW}	, 0, 0,	0.75,		0, {}
+zwbas		, {}	, 0x00F9F9,	1,	0x0000, {°KW}	, 0, 0,	0.75,		0, {}
+miistoar_w	, {}	, 0x382A18,	2,	0x0000, {%}	, 0, 0,	0.00152588,	0, {Istmoment ohne Antiruckel-Anteil}
+ldimxr_w	, {}	, 0x382744,	2,	0x0000, {%}	, 1, 0,	0.005,		0, {}
+
+B_ldimxp	, {}	, 0x00FD96,	2,	0x0200, {}	, 0, 0,	1,		0, {}
+B_ldimxa	, {}	, 0x00FD96,	2,	0x0080,	{}	, 0, 0,	1,		0, {}
+B_ldipos	, {}	, 0x382763,	1,	0x02,	{}	, 0, 0,	1,		0, {}
+
+B_krldya	, {}	, 0x00FD8C,	2,	0x8000, {}	, 0, 0,	1,		0, {}
+B_krldyv	, {}	, 0x00FD8C,	2,	0x0004, {}	, 0, 0,	1,		0, {}
+;B_tvars	, {}	, 0x00FD9E,	2,	0x????, {}	, 0, 0,	1,		0, {Bedingung Antiruckelfunktion dynamisch aktiv}
