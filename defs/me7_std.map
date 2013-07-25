@@ -1,6 +1,6 @@
 # Mapping for standard ME7.5/ME7.1
 #
-# Version 1.10, (c) mki 09/2011
+# Version 1.20, (c) mki 09/2011
 #
 #
 # Normally you should not need to edit this file!!
@@ -706,7 +706,7 @@
 01C9, 01, B_milkat            , 0, {        }, 0, 0,      1,         0, {Mil blinkt wegen Kat schädigende Aussetzer}
 01CA, 00, B_mola              , 0, {        }, 0, 0,      1,         0, {Motorlagersteuerung aktiv}
 01CD, 00, wnweos              , 0, {°KW     }, 0, 0,    0.5,         0, {Sollwinkel für Nockenwelle Einlaß öffnet}
-01CE, 00, wnwass              , 0, {°KW     }, 0, 0,    0.5,         0, {Sollwinkel für Nockenwelle Auslaß öffnet}
+01CE, 00, wnwass              , 0, {°KW     }, 0, 0,    0.5,         0, {Sollwinkel für Nockenwelle Auslaß schließt}
 01CF, 00, wnwise_w            , 0, {°KW     }, 1, 0, 0.00390625,     0, {Istwinkel für Einlaßnockenwelle}
 01D0, 00, wnwisa_w            , 0, {°KW     }, 1, 0, 0.00390625,     0, {Istwinkel für Auslaßnockenwelle}
 01D1, 00, upwkd_w             , 0, {V       }, 0, 0, 0.00488281,     0, {Gelernte Spannung von PWG-Poti 1 in der Kick-Down-Position}
@@ -728,8 +728,13 @@
 01DD, 00, tvlues2             , 0, {%       }, 0, 0, 0.390625,       0, {Tastverhältnis Lüfter 2}
 01DE, 00, tvkmtr              , 0, {%       }, 0, 0, 0.390625,       0, {Tastverhältnis elektrischer Thermostat}
 01DF, 00, tmotsoll            , 0, {°C      }, 0, 0,   0.75,        48, {Soll-Wassertemperatur  für Kühlmitteltemperaturregelung}
+#
 01E0, 00, wnwadmne_w          , 0, {°KW     }, 1, 0, 0.0078125,      0, {Minimalwertauswahl von adaptierten Werten (Einlass}
 01E1, 00, wnwadmna_w          , 0, {°KW     }, 1, 0, 0.0078125,      0, {Minimalwertauswahl von adaptierten Werten (Auslass}
+# Same two from above appear also here again:
+01E2, 00, wnwadmne_w          , 0, {°KW     }, 1, 0, 0.0078125,      0, {Minimalwertauswahl von adaptierten Werten (Einlass}
+01E3, 00, wnwadmna_w          , 0, {°KW     }, 1, 0, 0.0078125,      0, {Minimalwertauswahl von adaptierten Werten (Auslass}
+#
 01E8, 00, mslv_w              , 0, {g/s     }, 0, 0, 4.3402778e-04,  0, {Sekundärluftmasse für Ventildichtheitsprüfung (word)}
 01E9, 00, mslv2_w             , 0, {g/s     }, 0, 0, 4.3402778e-04,  0, {Sekundärluftmasse für Ventildichtheitsprüfung (word) Bank 2}
 01EB, 00, vfzroh_w            , 0, {km/h    }, 0, 0, 0.0078125,      0, {Fahrzeuggeschwindigkeit Ausgabewert an SCAN-Tool}
@@ -1135,13 +1140,12 @@
 
 #
 #
-#
-# AXIS variables (with restype=0 and bitmask=0 and size=1|2)
+# More variables (with restype=0 and bitmask=0 and size=1|2)
 #
 # rt, bm, varname             ,sz, {unit}    , S, I,      A,         B, {comment}
 #
 0000, 00, detazwbs            , 1, {%       }, 0, 0,       0.5,      0, {Delta ZW-Wirkungsgrad für Bauteileschutz}
-0000, 00, dns                 , 1, {U/min   }, 1, 0,        10,      0, {LLR: Drehzahlabweichung zur stationären Solldrehzahl}
+0000, 00, dns                 , 1, {rpm     }, 1, 0,        10,      0, {LLR: Drehzahlabweichung zur stationären Solldrehzahl}
 0000, 00, dzwg                , 1, {°KW     }, 1, 0,      0.75,      0, {Delta Zündwinkel Grund-ZW zu Optimal-ZW}
 0000, 00, dzwlamfaw           , 1, {°KW     }, 0, 0,     -0.75,      0, {Delta Zündwinkel bei KR-Eingriff oder Warmlauf für Anfettung über Lambda}
 0000, 00, fkhfm               , 1, {-       }, 0, 0, 0.0078125,      0, {HFM-Korrekturfaktor}
@@ -1157,7 +1161,7 @@
 0000, 00, msabg               , 1, {g/s     }, 0, 0, 1.11111111,     0, {Abgasmassenfluss gefiltert, Bank 1}
 0000, 00, ngfil               , 1, {rpm/s   }, 1, 0,       100,      0, {gefilterter Drehzahlgradient}
 0000, 00, ngfil_w             , 2, {rpm/s   }, 1, 0,   0.39063,      0, {gefilterter Drehzahlgradient}
-0000, 00, nmot_um             , 1, {Upm     }, 0, 0,        40,      0, {Motordrehzahl in der Funktionsüberwachung}
+0000, 00, nmot_um             , 1, {rpm     }, 0, 0,        40,      0, {Motordrehzahl in der Funktionsüberwachung}
 0000, 00, plsolr_w            , 2, {mbar    }, 0, 0, 0.0390625,      0, {Relativer Solladedruck LDR}
 0000, 00, rl_um               , 1, {%       }, 0, 0,      0.75,      0, {relative Luftfüllung in der Funktionsüberwachung}
 0000, 00, tsel                , 1, {°C      }, 0, 0,      0.75,     48, {Selektierte Temperatur (tans/tumc)}
@@ -1176,284 +1180,5 @@
 0000, 00, tolc_b2w            , 2, {°C      }, 0, 0,         1,     60, {DUMMY axis variable (byte -> word)}
 0000, 00, zwspae              , 1, {°KW     }, 1, 0,      0.75,      0, {Spätester Zündwinkel}
 0000, 00, zwbas               , 1, {°KW     }, 1, 0,      0.75,      0, {Basiszündwinkel}
-
-
-#
-#
-#
-# MAP variables (with restype=0 and bitmask=<category> and size=1|2))
-#
-# rt, bm, varname             ,sz, {unit}    , S, I,      A,         B, {comment}
-#
-
-# Boost PID
-
-# Boost
-0000, 04, KFMIOP              , 2, {%       }, 0, 0, 0.00152588,     0, {Kennfeld optimales Motormoment}
-0000, 04, KFMIRL              , 2, {%       }, 0, 0, 0.0234375,      0, {Kennfeld für Berechnung Sollfüllung}
-0000, 04, FRLMNHO             , 1, {-       }, 0, 0, 0.0078125,      0, {Korrekturfaktor rlmin über Höhe}
-0000, 04, KFLDRQ1             , 2, {%/100mBar}, 0, 0,     0.05,      0, {LDR-Reglerparameter Q1 (Integratorbeiwert)}
-0000, 04, LDRQ0S              , 2, {%/100mBar}, 0, 0,     0.05,      0, {Reglerparameter Q0 LDR-PID Regler im Stationärbetrieb}
-0000, 04, LDRQ1ST             , 2, {%/100mBar}, 0, 0,     0.05,      0, {Reglerparameter Q1 PID-Regler im Stationärbetrieb (Integrationsbeiwert)}
-0000, 04, KFLDRQ2             , 2, {%/100mBar}, 0, 0,     0.05,      0, {Kennfeld LDR-Reglerparameter Q2}
-0000, 04, KFLDRQ0             , 2, {%/100mBar}, 0, 0,     0.05,      0, {LDR-Regelparameter Q0}
-0000, 04, LDRQ0DY             , 2, {%/100mBar}, 0, 0,      0.05,      0, {LDR-Reglerparameter Q0}
-0000, 04, LDRQ1DY             , 2, {%/100mBar}, 0, 0,      0.05,      0, {Reglerparameter Q1 PID-Regler im Dynamikbetrieb (Integrationsbeiwert)}
-0000, 04, KFLDIAPL            , 2, {-       }, 0, 0, 3.05176e-05,    0, {Korrektur Adaptionswert I-Anteil}
-0000, 04, KFRBGOF             , 2, {%       }, 1, 0,     0.005,      0, {Offset für I-Anteilbegrenzung LDRPID}
-0000, 04, KFLDIMX             , 2, {%       }, 0, 0,     0.005,      0, {Kennfeld LDR I-Reglerbegrenzung}
-0000, 04, KFLDIWL             , 1, {%       }, 0, 0,      0.64,      0, {Korrektur LDR I-Begrenzung im Warmlauf}
-0000, 04, LDIATA              , 1, {%       }, 0, 0,      0.64,      0, {Korrektur I-Begrenzung LDR PID Rgler als Funktion von Tans}
-0000, 04, KFLDIOPU            , 1, {%       }, 0, 0,      0.64,      0, {Korrektur der TV-Werte durch Höheneinfluß}
-0000, 04, NLDIAPU             , 1, {rpm     }, 0, 0,        40,      0, {Drehzahlschwelle für Adaption I-Begrenzung}
-0000, 04, LDDIMXN             , 2, {%       }, 1, 0,     0.005,      0, {Sicherheitsabstand LDR I-Regler Begrenzung}
-0000, 04, LDDIMNN             , 2, {%       }, 1, 0,     0.005,      0, {Sicherheitsabstand LDR I-Regler Begrenzung negativ}
-0000, 04, TLDIAPN             , 1, {s       }, 0, 0,      0.05,      0, {Entprellzeit für Nachführung I-Adaption positiv}
-0000, 04, KFLDRL              , 2, {%       }, 1, 0,     0.005,      0, {KF zur Linearisierung Ladedruck=f(TV)}
-0000, 04, NDLDRAPU            , 1, {rpm     }, 0, 0,        40,      0, {Drehzahlschwelle für LDRA Fehlerpfad und Heilung LDO Fehlerpfad}
-0000, 04, KFVPDKLD            , 1, {-       }, 0, 0,  0.015625,      0, {Max. zulässiges Druckverhältnis DK für ldra Diagnose}
-0000, 04, LDRXNZK             , 2, {%       }, 0, 0, 0.0234375,      0, {Maximalfuellung LDR bei Dauerklopfen}
-0000, 04, LDRXN               , 2, {%       }, 0, 0, 0.0234375,      0, {Maximalfuellung LDR}
-0000, 04, RLKRLDA             , 1, {%       }, 0, 0,      0.75,      0, {Rl-Schwelle für langsamen LDR-Eingriff (Adaption)}
-0000, 04, TLKRLDAB            , 2, {s       }, 0, 1,    3276.8,      0, {Zeitkonstante für langsame LDR-Absenkung}
-0000, 04, TLKRLDAU            , 2, {s       }, 0, 1,    3276.8,      0, {Zeitkonstante für langsame LDR-Aufregelung}
-0000, 04, TSKRLDAB            , 2, {s       }, 0, 1,    3276.8,      0, {Zeitkonstante für schnelle LDR-Absenkung}
-0000, 04, TSKRLDAU            , 2, {s       }, 0, 1,    3276.8,      0, {Zeitkonstante für schnelle LDR-Aufregelung}
-0000, 04, KFFSLDE             , 2, {-       }, 0, 0, 3.05176e-05,    0, {Faktor für schnellen LDR-Eingriff(Absenkung)}
-0000, 04, KFFLLDE             , 2, {-       }, 0, 0, 3.05176e-05,    0, {Faktor für langsamen Ladedruckeingriff auf rlmax durch KR}
-0000, 04, KFFWLLDE            , 2, {-       }, 0, 0, 3.05176e-05,    0, {Wichtungsfaktor für langsamen Ladedruckeingriff auf rlmax durch KR}
-0000, 04, KFFLDEO             , 2, {-       }, 0, 0, 1.52588e-05,    0, {Faktor für Ladedruckeingriff auf Overboostwert durch KR}
-0000, 04, KFTARXB             , 2, {-       }, 0, 0, 3.05176e-05,    0, {Basiswerte Kennfeld Maximalfuellung Tans Korrekturfaktor}
-0000, 04, KFTARXZK            , 2, {-       }, 0, 0, 3.05176e-05,    0, {Kennfeld Maximalfuellung Tans Korrekturfaktor bei Dauerklopfen}
-0000, 04, KFTARX              , 2, {-       }, 0, 0, 3.05176e-05,    0, {Kennfeld Maximalfuellung Tans Korrekturfaktor}
-0000, 04, KFLDHBN             , 1, {-       }, 0, 0, 0.015625,       0, {LDR-Höhenbegrenzung (max. Verdichterdruckverhältnis)}
-0000, 04, LDPBN               , 1, {mBar    }, 1, 0,        10,      0, {LDR p-Begrenzung bei zu hoher Motortemperatur}
-0000, 04, LDORXN              , 1, {%       }, 0, 0,      0.75,      0, {Maximalfuellung LDR bei E_ldo (Überladefehler)}
-0000, 04, UMDYLDR             , 1, {mBar    }, 1, 0,        10,      0, {Umschaltschwelle Dynamik LDR}
-0000, 04, CWLDIMX             , 1, {        }, 0, 0,         1,      0, {Codewort für Applikationsverfahren KFLDIMX/KFLDIOPU}
-0000, 04, KFWPLGTA            , 1, {-       }, 0, 0, 0.0078125,      0, {Kennfeld für Wichtungsfaktor Grundladedruck als f(tans)}
-0000, 04, KFLDDIMNN           , 2, {%       }, 1, 0,     0.005,      0, {Sicherheitsabstand LDR I-Regler Begrenzung negativ}
-0000, 04, KFMI_UM             , 1, {%       }, 0, 0,  0.390625,      0, {Kennfeld optimales Motormoment in der Funktionsüberwachung}
-0000, 04, LDRAPP              , 1, {%       }, 0, 0, 0.390625,       0, {Festwert für LDR-Applikation ohne Md-Koordination}
-0000, 04, KFLDRAPP            , 1, {%       }, 0, 0, 0.390625,       0, {Kennfeld für LDR-Applikation ohne Md-Koordination}
-0000, 04, KFTVLDRE            , 1, {%       }, 0, 0, 0.390625,       0, {Kennfeld Tastverhältnisersatzwert für LDR}
-0000, 04, LDRPBU              , 1, {%       }, 0, 0, 0.001028,       0, {P-Regler Kennwert LDR back up Regler}
-0000, 04, TVLDMN              , 1, {%       }, 0, 0, 0.390625,       0, {Untere Tastverhältnisbegrenzung für LDR}
-0000, 04, TVLDMX              , 2, {%       }, 1, 0, 0.005,          0, {Obere Tastverhältnisbegrenzung für LDR}
-
-# Boost ldob
-0000, 05, KFDLULS             , 1, {mBar    }, 0, 0,         5,      0, {Delta Druck für Überladeschutzdiagnose}
-
-# Throttle
-0000, 06, KFPED               , 2, {%       }, 0, 0, 0.00305176,      0, {Relatives Fahrerwunschmoment aus Fahrpedal}
-0000, 06, KFPED_0_A           , 2, {%       }, 0, 0, 0.00305176,      0, {Relatives Fahrerwunschmoment aus Fahrpedal}
-0000, 06, KFPED_1_A           , 2, {%       }, 0, 0, 0.00305176,      0, {Relatives Fahrerwunschmoment aus Fahrpedal}
-0000, 06, KFPEDR              , 2, {%       }, 0, 0, 0.00305176,      0, {Relatives Fahrerwunschmoment aus Fahrpedal für Rückwärtsgang}
-0000, 06, KFPEDR_0_A          , 2, {%       }, 0, 0, 0.00305176,      0, {Relatives Fahrerwunschmoment aus Fahrpedal für Rückwärtsgang}
-0000, 06, KFPEDR_1_A          , 2, {%       }, 0, 0, 0.00305176,      0, {Relatives Fahrerwunschmoment aus Fahrpedal für Rückwärtsgang}
-0000, 06, KFPEDL              , 2, {%       }, 0, 0, 0.00305176,      0, {Relatives Fahrerwunschmoment aus Fahrpedal für kleine Geschwindigkeiten}
-0000, 06, KFPEDLR             , 2, {%       }, 0, 0, 0.00305176,      0, {Relatives Fahrerwunschmoment aus Fahrpedal für Low-Range-Betrieb}
-
-# MAF
-0000, 07, MLHFM               , 2, {g/s     }, 0, 0, 0.027777778,    0, {Linearisierung der Heißfilmspannung}
-0000, 07, KFKHFM              , 1, {-       }, 0, 0, 0.0078125,      0, {Korrekturkennfeld für HFM}
-0000, 07, KFMLDMN             , 2, {g/s     }, 1, 0, 0.027777778,    0, {ML-Schwelle für B_minflr-Diagnose HFM/HLM}
-0000, 07, KFMLDMX             , 2, {g/s     }, 1, 0, 0.027777778,    0, {ML-Schwelle für B_maxflr-Diagnose HFM/HLM}
-0000, 07, MLOFS               , 2, {g/s     }, 0, 0, 0.027777778,    0, {Kennlinienoffset HFM 5}
-
-# Timing
-0000, 08, KFZW                , 1, {°KW     }, 1, 0,      0.75,      0, {Zündwinkelkennfeld}
-0000, 08, KFZW2               , 1, {°KW     }, 1, 0,      0.75,      0, {Zündwinkelkennfeld Variante 2}
-0000, 08, KFZWOP              , 1, {°KW     }, 1, 0,      0.75,      0, {optimaler Zündwinkel}
-0000, 08, KFZWOP2             , 1, {°KW     }, 1, 0,      0.75,      0, {optimaler Zündwinkel Variante 2}
-0000, 08, KFZWA               , 1, {°KW     }, 1, 0,      0.75,      0, {Zündwinkelkorrektur durch Ansaugluft und Last}
-0000, 08, KFZWA2              , 1, {°KW     }, 1, 0,      0.75,      0, {Zündwinkelkennfeld, Auslaßnockenwelle max. verstellt, Variante 2}
-0000, 08, KFDWSZ              , 1, {°KW     }, 1, 0,      0.75,      0, {delta Zündwinkelkennfeld für selektive Zündverstellung}
-0000, 08, KFDWSZ2             , 1, {°KW     }, 1, 0,      0.75,      0, {delta ZW für Banksel. ZW-Verstellung; bei NWV}
-0000, 08, KFZWOPA             , 1, {°KW     }, 1, 0,      0.75,      0, {optimaler Zündwinkel, Auslaßnockenwelle max. verstellt}
-0000, 08, KFZWOPA2            , 1, {°KW     }, 1, 0,      0.75,      0, {optimaler Zündwinkel, Auslaßnockenwelle max. verstellt, Var. 2}
-0000, 08, KFZWMS              , 1, {°KW     }, 1, 0,      0.75,      0, {Kennfeld mit dauerhaft spätest möglichem Zündwinkel}
-0000, 08, KLZZWMNST           , 1, {s       }, 1, 1,    655.36,      0, {KL Zeitkonstante für Abregelung ZW-Begrenzung im Nachstart}
-0000, 08, CWKHZW              , 1, {        }, 0, 0,         1,      0, {Codewort für spätesten Zündwinkel bei Katheizen}
-0000, 08, KFZWMNKH            , 1, {°KW     }, 1, 0,      0.75,      0, {Min-Zündwinkel Katheizen}
-0000, 08, KFZWMN              , 1, {°KW     }, 1, 0,      0.75,      0, {Min-Zündwinkel}
-0000, 08, KFZWMNST            , 1, {°KW     }, 1, 0,      0.75,      0, {Min-Zündwinkel für Start und Nachstart}
-0000, 08, KFDZMNST            , 1, {°KW     }, 1, 0,      0.75,      0, {Min-Zündwinkeloffset im Nachstart - Regelung des Startüberschwingers}
-0000, 08, FZWWLRLN            , 1, {-       }, 0, 0, 0.0078125,      0, {Wichtung Delta-Zündwinkel im Warmlauf}
-0000, 08, KFZWWLNM            , 1, {°KW     }, 1, 0,      0.75,      0, {Delta Zündwinkel im Warmlauf}
-0000, 08, KFZWWLRL            , 1, {°KW     }, 1, 0,      0.75,      0, {Delta Zündwinkel im Warmlauf}
-0000, 08, ETADZW              , 1, {%       }, 1, 0,       0.5,      0, {ZW-Wirkungsgrad in Abhängigkeit von delta ZW}
-0000, 08, KFZW_UM             , 1, {°KW     }, 1, 0,      0.75,      0, {Kennfeld für optimalen Zündwinkel in der Funktionsüberwachung}
-
-0000, 08, NMNZUESA            , 1, {rpm     }, 0, 0,        40,      0, {untere nmot-Schwelle für Ausgabe TSMNSA}
-0000, 08, NMXZUESA            , 1, {rpm     }, 0, 0,        40,      0, {obere nmot-Schwelle für Ausgabe TSMNSA}
-0000, 08, FSZTM               , 1, {-       }, 0, 0, 0.0078125,      0, {Faktor Schließzeitkorrektur tmot-abhängig}
-0000, 08, KFSZT               , 1, {ms      }, 0, 0,       0.1,      0, {Schließzeit-Kennfeld}
-0000, 08, TSMNSA              , 1, {ms      }, 0, 0,       0.1,      0, {Ladezeit bei SA}
-0000, 08, TSMXNL              , 1, {ms      }, 0, 0,       0.1,      0, {Ladezeitbegrenzung im Fehlerfall}
-0000, 08, FSWTM               , 1, {-       }, 0, 0, 0.0078125,      0, {Faktor Schließwinkelkorrektur tmot-abhängig}
-0000, 08, KFTSRL              , 1, {ms      }, 0, 0,       0.1,      0, {Schließzeitkennfeld}
-0000, 08, TSMX                , 1, {ms      }, 0, 0,       0.1,      0, {Ladezeitbegrenzung}
-0000, 08, DUBZS               , 1, {V       }, 0, 0,    0.0704,      0, {Spannungsversatz zwischen SG und ZS}
-0000, 08, KFSZDUB             , 1, {-       }, 0, 0,   0.03125,      0, {Schließzeitkorrektur in Abhängigkeit von UB}
-0000, 08, KFTSDYN             , 2, {-       }, 0, 0, 0.00012207,     0, {Schließzeitkorrektur in Abhängigkeit des Drehzahlgradienten}
-0000, 08, FTOMN               , 1, {ms      }, 0, 0,       0.1,      0, {minimale Öffnungszeit}
-0000, 08, FWNMOT              , 1, {rpm     }, 0, 0,        40,      0, {Einschaltschwelle nmot für Funkenbandzündung}
-0000, 08, CW_FUBND            , 1, {        }, 0, 0,         1,      0, {Codewort für Funkenbandzündung}
-0000, 08, FFLDZ               , 2, {ms      }, 0, 0, 0.000666667,    0, {Folgefunkenladezeit}
-0000, 08, FUBAOF              , 2, {ms      }, 0, 0, 0.000666667,    0, {Offenzeit für Funkenbandzündung}
-0000, 08, KFFFANZ             , 1, {        }, 0, 0,         1,      0, {Anzahl Folgefunken}
-
-
-
-# Variable cam timing (NWS)
-
-# Fueling
-0000, 0A, LAMFA               , 1, {-       }, 0, 0, 0.0078125,      0, {Lambda Fahrerwunsch}
-0000, 0A, DLAMOB              , 1, {-       }, 0, 0, 0.0078125,      0, {Delta Lambda bei Overboost}
-0000, 0A, DLAMTANS            , 1, {-       }, 1, 0, 0.0078125,      0, {Lufttemperaturabhängige Anfettung}
-0000, 0A, KFLAFWL             , 1, {-       }, 1, 0, 0.0078125,      0, {Offset Lambda-Motor-Soll}
-0000, 0A, KFLAMKR             , 1, {-       }, 0, 0, 0.0078125,      0, {Wichtungsfaktor für Anfettung bei Zündwinkelspätverstellung}
-0000, 0A, KFLAMKRL            , 1, {-       }, 0, 0, 0.0078125,      0, {Anfettung bei Zündwinkelspätverstellung}
-0000, 0A, LAMFAS              , 1, {-       }, 0, 0, 0.00390625,     0, {Sperre Lambda Fahrerwunsch}
-0000, 0A, GANGFAW             , 1, {        }, 0, 0,         1,      0, {Gangschwelle für Deaktivierung Fahrerwunsch in der Höhe}
-0000, 0A, DLAMFAW             , 1, {-       }, 0, 0, 0.0078125,      0, {Schwellwert für Aktivierung Anfettung über Fahrerwunsch}
-0000, 0A, KFLF                , 1, {-       }, 0, 0, 0.0078125,      0, {Lambdakennfeld bei Teillast}
-
-0000, 0A, KFLBTS              , 1, {-       }, 0, 0, 0.0078125,      0, {Lambdasoll für Bauteileschutz}
-0000, 0A, KFFDLBTS            , 1, {-       }, 0, 0, 0.0078125,      0, {Faktor Delta Lambdasoll für Bauteileschutz}
-0000, 0A, KFDLBTS             , 1, {-       }, 1, 0, 0.0078125,      0, {Delta Lambdasoll für Bauteileschutz}
-0000, 00, DLBTS               , 1, {-       }, 1, 0, 0.0078125,      0, {Delta Lambdasoll für Bauteileschutz}
-0000, 0A, FBSTABGM            , 2, {-       }, 0, 0, 3.05176e-05,    0, {Faktor Bauteileschutz abhängig von model. Abgastemperatur}
-0000, 0A, FBSTMOT             , 1, {-       }, 1, 0, 0.0078125,      0, {Offset Bauteileschutz abhängig von Motor-Temperatur}
-0000, 0A, TABGBTS             , 2, {°C      }, 0, 0, 0.0195312,     50, {Abgastemperaturschwelle für Bauteileschutz}
-0000, 0A, DTBTS               , 2, {°C      }, 0, 0, 0.0195312,      0, {Temperaturhysterese für Bauteileschutz}
-0000, 0A, TKATBTS             , 2, {°C      }, 0, 0, 0.0195312,     50, {Kat-Temperaturschwelle für Bauteileschutz}
-0000, 0A, TIKATBTS            , 2, {°C      }, 0, 0, 0.0195312,     50, {Temperaturschwelle im Kat für Bauteileschutz}
-0000, 0A, TVLBTS              , 1, {s       }, 0, 0,       0.1,      0, {Verzögerungszeit Lambdasoll Bauteileschutz}
-0000, 0A, ZLBTS               , 2, {s       }, 0, 1,    6553.6,      0, {Zeitkonstante Lambda Bauteileschutz}
-0000, 0A, ZDLBTS              , 2, {s       }, 0, 1,    6553.6,      0, {Zeitkonstante Delta Lambda Bauteileschutz}
-0000, 0A, CWLAMBTS            , 1, {        }, 0, 0,         1,      0, {Codewort: Lambda Bauteileschutz}
-0000, 0A, TEMIN               , 2, {ms      }, 0, 0, 0.00266667,     0, {minimales TE}
-0000, 0A, TEMINVA             , 2, {ms      }, 0, 0, 0.00266667,     0, {minimales TE bei VA}
-0000, 0A, TVUB                , 2, {ms      }, 0, 0, 0.00266667,     0, {Spannungskorrektur}
-0000, 0A, KRKTE               , 2, {ms/%    }, 0, 0, 0.000166667,    0, {Umrechnung relative Kraftstoffmasse rk in effektive Einspritzzeit te}
-0000, 0A, KRKTE_BYTE          , 1, {ms/%    }, 0, 0, 0.00213333,     0, {Umrechnung relative Kraftstoffmasse rk in effektive Einspritzzeit te}
-0000, 0A, CWLAMFAW            , 1, {        }, 0, 0,         1,      0, {Codeword LAMFAW}
-0000, 0A, FKKVS               , 2, {-       }, 0, 0, 3.05176e-05,    0, {Korrekturfaktor Kraftstoffversorgungssystem}
-0000, 0A, KVB                 , 1, {cm^3/min}, 0, 0,   3.04688,      0, {Konstante für Verbrauchsanzeige}
-0000, 0A, FKVA                , 1, {-       }, 0, 0,    0.0625,      0, {Konstanter Umrechnungsfaktor für Verbrauchsanzeige}
-
-
-# Limiters
-0000, 14, VAVMXNIV            , 2, {km/h    }, 0, 0, 0.0078125,      0, {Maximalgeschwindigkeit für Aktivierung der VMAX-Begrenzung durch Niveauregelung}
-0000, 14, VAVMXPNG            , 2, {km/h    }, 0, 0, 0.0078125,      0, {Maximalgeschw. für Aktivierung der VMAX-Begrenzung durch Planetennachgelege}
-0000, 14, VMAXNIV             , 2, {km/h    }, 0, 0, 0.0078125,      0, {Maximal zulässige Geschwindigkeit bei Begrenzung durch Niveauregelung}
-0000, 14, VMAXPNG             , 2, {km/h    }, 0, 0, 0.0078125,      0, {Maximal zulässige Geschwindigkeit bei Begrenzung durch Planetennachgelege}
-0000, 14, VMAXEB              , 2, {km/h    }, 0, 0, 0.0078125,      0, {Maximal zulässige Fahrzeuggeschwindigkeit im Ersatzbetrieb}
-0000, 14, VMAXNB              , 2, {km/h    }, 0, 0, 0.0078125,      0, {Maximal zulässige Fahrzeuggeschwindigkeit im Normalbetrieb}
-0000, 14, VMAXTM              , 2, {km/h    }, 0, 0, 0.0078125,      0, {Maximalgeschwindigkeit aus Motortemperatur}
-0000, 14, VMAXTOL             , 2, {km/h    }, 0, 0, 0.0078125,      0, {Maximalgeschwindigkeit aus Öltemperatur}
-
-0000, 14, VABSCH              , 2, {km/h    }, 0, 0, 0.0078125,      0, {Vmax-Regler-Abschaltschwelle, variantenkodiert}
-0000, 14, VHYST               , 2, {km/h    }, 0, 0, 0.0078125,      0, {Vmax-Hystereseschwelle, variantenkodiert}
-0000, 14, VMAXO               , 2, {km/h    }, 0, 0, 0.0078125,      0, {Vmax-Begrenzungswert (Linie mit 16 Varianten)}
-0000, 14, VVORH               , 2, {km/h    }, 0, 0, 0.0078125,      0, {Vmax-Vorhaltschwelle, variantenkodiert}
-
-0000, 14, NMAX                , 2, {rpm     }, 0, 0,   0.25,      0, {Drehzahlbegrenzung}
-0000, 14, NMAXGA              , 2, {rpm     }, 0, 0,   0.25,      0, {Maximal zulässige Motordrehzahl (stationär)}
-0000, 14, NMAXOG              , 2, {rpm     }, 0, 0,   0.25,      0, {erhöhte Drehzahlgrenze}
-0000, 14, NMAXOGGA            , 2, {rpm     }, 0, 0,   0.25,      0, {Maximal zulässige Motordrehzahl (kurzzeitige Überhöhung)}
-0000, 14, NMAXKR              , 2, {rpm     }, 0, 0,   0.25,      0, {Drehzahlgrenze bei Sicherheitsspätverstellung der Klopfregelung}
-0000, 14, NMAXDV              , 2, {rpm     }, 0, 0,   0.25,      0, {Drehzahlbegrenzung bei Fehlererkennung Geschwindigkeitssignal}
-0000, 14, NMAXDZ              , 2, {rpm     }, 0, 0,   0.25,      0, {Drehzahlgrenze bei doppelter Zündausgabe}
-0000, 14, NMAXNL              , 2, {rpm     }, 0, 0,   0.25,      0, {Drehzahlgrenze bei Drehzahlgeber-Notlauf}
-0000, 14, NMAXDVG             , 2, {rpm     }, 0, 0,   0.25,      0, {Drehzahlgrenze für Automatik-Getriebe bei Fehler Geschwindigkeitssignal}
-0000, 14, ITNMXH              , 2, {s       }, 0, 0,   0.01,      0, {Verweilzeit unterhalb unterer Drehzahlgrenze vor Aktivierung der oberen Grenze}
-0000, 14, VNMX                , 1, {km/h    }, 0, 0,   1.25,      0, {Geschwindigkeits-Schwelle für Aktivierung der erhöhten Drehzahlgrenze}
-0000, 14, DNMAXH              , 2, {rpm     }, 0, 0,   0.25,      0, {Überschreitung der Maximaldrehzahl für Einspritzausblendung an allen Zylindern}
-0000, 14, TMOTNMX             , 1, {°C      }, 0, 0,   0.75,     48, {Motortemperatur-Schwelle für Aktivierung der erhöhten Drehzahlgrenze}
-0000, 14, TNMXH               , 2, {s       }, 0, 0,   0.01,      0, {Maximale Zeitdauer für erhöhte Drehzahlgrenze}
-0000, 14, CWNMAXMD            , 1, {        }, 0, 0,      1,      0, {Codeword Drehzahlbegrenzung}
-
-# Normaly not needed internals:
-0000, 14, NMXMDSKA            , 2, {rpm     }, 0, 0,   0.25,      0, {Maximaldrehzahl bei unbekannter Drosselklappenposition -> Ev-Abschaltung}
-0000, 14, TNLZOFF             , 1, {s       }, 0, 0,   0.02,      0, {Verzögerungszeit zur Abschaltung der Zündung bei SKA für Überwachung}
-0000, 14, DNSKAZ              , 2, {rpm     }, 0, 0,   0.25,      0, {Offset für Drehzahlschwelle zur Abschaltung Zündung bei SKA}
-
-
-# Codewords
-0000, 0E, CDMD                , 1, {        }, 0, 0,      1,      0, {Codewort DMD abschalten (EURO-Codierung), CD..=0 -> keine Diagnose}
-0000, 0E, CDAGR               , 1, {        }, 0, 0,      1,      0, {Codewort DAGR abschalten (EURO-Codierung), CD..=0 -> keine Diagnose}
-0000, 0E, CDAGRL              , 1, {        }, 0, 0,      1,      0, {Codewort Diagnose Lagesensor abschalten (EURO-Codierung), CD..=0 -> keine Diag.}
-0000, 0E, CDATR               , 1, {        }, 0, 0,      1,      0, {Konfigurationsbyte Diagnose Abgastemperaturregelung}
-0000, 0E, CDATS               , 1, {        }, 0, 0,      1,      0, {Konfigurationsbyte Diagnose Abgastemperatursensor}
-0000, 0E, CDBKVP              , 1, {        }, 0, 0,      1,      0, {Codewort zur Freigabe der Diagnose Bremskraftverstärker-Pumpe DBKVP}
-0000, 0E, CDBKVP_0_A          , 1, {        }, 0, 0,      1,      0, {Codewort zur Freigabe der Diagnose Bremskraftverstärker-Pumpe DBKVP}
-0000, 0E, CDBKVP_1_A          , 1, {        }, 0, 0,      1,      0, {Codewort zur Freigabe der Diagnose Bremskraftverstärker-Pumpe DBKVP}
-0000, 0E, CDDSBKV             , 1, {        }, 0, 0,      1,      0, {Codewort für %DDSBKV}
-0000, 0E, CDDSBKV_0_A         , 1, {        }, 0, 0,      1,      0, {Codewort für %DDSBKV}
-0000, 0E, CDDSBKV_1_A         , 1, {        }, 0, 0,      1,      0, {Codewort für %DDSBKV}
-0000, 0E, CDDST               , 1, {        }, 0, 0,      1,      0, {Codewort Tankdrucksensor-Diagnose abschalten (EURO-Codierung)}
-0000, 0E, CDEGFE              , 1, {        }, 0, 0,      1,      0, {Codewort Diagnose Eingangsgrößen Füllungserfassung}
-0000, 0E, CDEHFM              , 1, {        }, 0, 0,      1,      0, {Codewort zum Aktivieren der %DHFM}
-0000, 0E, CDGGGTS             , 1, {        }, 0, 0,      1,      0, {Codewort GGGTS (Kühlwassertemperatur über Kombi)}
-0000, 0E, CDHSH               , 1, {        }, 0, 0,      1,      0, {Codewort Heizerdiagnose hinter Kat (CDHSH = 0  => keine Diagnose)}
-0000, 0E, CDHSHE              , 1, {        }, 0, 0,      1,      0, {Eurobit für Diagnose Entstufe Lambdasondenheizung hinter Kat}
-0000, 0E, CDHSV               , 1, {        }, 0, 0,      1,      0, {Codewort Heizerdiagnose vor Kat im (CDHSV = 0  => keine Diagnose)}
-0000, 0E, CDHSVE              , 1, {        }, 0, 0,      1,      0, {Codewort DHLSE Heizer Endstufe diagnose vor Kat}
-0000, 0E, CDHSVSA             , 1, {        }, 0, 0,      1,      0, {Codewort Heizerdiagnose vor Kat im Schub (CDHSVsa = 0  => keine Diagnose)}
-0000, 0E, CDKAT               , 1, {        }, 0, 0,      1,      0, {Codewort Katalysator-Diagnose im OBDII-Mode (invers: Europa-Mode)}
-0000, 0E, CDKATSP             , 1, {        }, 0, 0,      1,      0, {Codewort Katalysator-Diagnose im OBDII-Mode (invers: Europa-Mode)}
-0000, 0E, CDKATSPF            , 1, {        }, 0, 0,      1,      0, {Katdiagnose, Freigabe}
-0000, 0E, CDKVS               , 1, {        }, 0, 0,      1,      0, {Codeword DKVS aktiv/inaktiv, CD..=0 -> keine Diagnose}
-0000, 0E, CDLASH              , 1, {        }, 0, 0,      1,      0, {Codewort Lambdasondenalterungsdiagnose (SHK) im OBDII-Mode (invers: Europa-Mode)}
-0000, 0E, CDLATP              , 1, {        }, 0, 0,      1,      0, {Codewort Lambdasondenalterungsdiagnose (TP) im OBDII-Mode (invers: Europa-Mode)}
-0000, 0E, CDLATV              , 1, {        }, 0, 0,      1,      0, {Codewort Lambdasondenalterungsdiagnose (tv) im OBDII-Mode (invers: Europa-Mode)}
-0000, 0E, CDLDP               , 1, {        }, 0, 0,      1,      0, {Codewort LDP-Diagnose im OBDII-Modus (invers: Europa-Modus), CD..=0 -> keine Dia}
-0000, 0E, CDLLR               , 1, {        }, 0, 0,      1,      0, {Codewort DLLR abschalten (EURO-Codierung), CD..=0 -> keine Diagnose}
-0000, 0E, CDLSA               , 1, {        }, 0, 0,      1,      0, {Codewort Lambdasondenalterungsdiagnose, Konfig.-byte, für Applikationszwecke}
-0000, 0E, CDLSH               , 1, {        }, 0, 0,      1,      0, {Codewort Sondendiagnose hinter Kat im OBDII-Mode (invers: Europa-Mode)}
-0000, 0E, CDLSHV              , 1, {        }, 0, 0,      1,      0, {Codewort Diagnose Lambdasondenvertauscherkennung}
-0000, 0E, CDLSV               , 1, {        }, 0, 0,      1,      0, {Codewort Sondendiagnose vor KAT im OBDII-Mode}
-0000, 0E, CDLSVV              , 1, {        }, 0, 0,      1,      0, {Codewort Diagnose vertauschte Sonden vor Kat im OBDII-Mode (invers: Europa-Mode)}
-0000, 0E, CDMD                , 1, {        }, 0, 0,      1,      0, {Codewort DMD abschalten (EURO-Codierung), CD..=0 -> keine Diagnose}
-0000, 0E, CDNWS               , 1, {        }, 0, 0,      1,      0, {Codewort DNWS abschalten (EURO-Codierung), CD..=0 -> keine Diagnose}
-0000, 0E, CDSLS               , 1, {        }, 0, 0,      1,      0, {Euro-Byte für Diagnose Sekundärluft-System}
-0000, 0E, CDSWE               , 1, {        }, 0, 0,      1,      0, {Codewort DSWE abschalten (EURO-Codierung), CD..=0 -> keine Diagnose}
-0000, 0E, CDSWE_0_A           , 1, {        }, 0, 0,      1,      0, {Codewort DSWE abschalten (EURO-Codierung), CD..=0 -> keine Diagnose}
-0000, 0E, CDSWE_1_A           , 1, {        }, 0, 0,      1,      0, {Codewort DSWE abschalten (EURO-Codierung), CD..=0 -> keine Diagnose}
-0000, 0E, CDTANKL             , 1, {        }, 0, 0,      1,      0, {Codewort DTANKL abschalten (EURO-Codierung), CD..=0 -> keine Diagnose}
-0000, 0E, CDTES               , 1, {        }, 0, 0,      1,      0, {Codewort Tankentlüftungsdiagnose abschalten (EURO-Codierung), CD..=0 ->keine Dia}
-0000, 0E, CWLSHA              , 1, {        }, 0, 0,      1,      0, {Codewort für Lambdasonden hinter KAT Alterung in %DLSAHK}
-
-#Error classes
-0000, 0E, CLAHSH              , 1, {        }, 0, 0,      1,      0, {Fehlerklasse: Heizung Lambdasonde hinter Kat}
-0000, 0E, CLAHSH2             , 1, {        }, 0, 0,      1,      0, {Fehlerklasse: Heizung Lambdasonde 2 hinter Kat}
-0000, 0E, CLAHSHE             , 1, {        }, 0, 0,      1,      0, {Fehlerklasse: Endstufe Heizung Lambdasonde hinter Kat}
-0000, 0E, CLAHSHE2            , 1, {        }, 0, 0,      1,      0, {Fehlerklasse: Endstufe Heizung Lambdasonde 2 hinter Kat}
-0000, 0E, CLALSH              , 1, {        }, 0, 0,      1,      0, {Fehlerklasse: Lambdasonde hinter Kat}
-0000, 0E, CLALSH2             , 1, {        }, 0, 0,      1,      0, {Fehlerklasse: Lambdasonde 2 hinter Kat}
-
-# Idle
-0000, 10, KFMRES              , 1, {%       }, 0, 0, 0.0976471,   0, {LLR: Basis Momentenreserve im LL und ll-nahem Bereich}
-0000, 10, KFMRESK             , 1, {%       }, 0, 0, 0.0976471,   0, {LLR: Basis Momentenreserve im LL und ll-nahem Bereich,ausgekuppelt}
-0000, 10, KFMRESKH            , 1, {%       }, 0, 0, 0.0976471,   0, {Momentenreserve bei Kat.heizen}
-0000, 10, KFMRESNL            , 1, {%       }, 0, 0, 0.0976471,   0, {Momentenreserve im nicht Leerlauf}
-0000, 10, KFMRESTA            , 1, {%       }, 0, 0, 0.0976471,   0, {Momentreserve abhängig von tans}
-0000, 10, MRESLL              , 1, {%       }, 0, 0, 0.0976471,   0, {LLR: Erhöhte Momentenreserve im LL nach Drehzahleinbruch}
-0000, 10, NWPMBBR             , 1, {rpm     }, 0, 0,        40,   0, {Mindestdrehzahl für Pedalwertbegrenzung bei betätigter Bremse}
-0000, 10, VWPMBBR             , 1, {km/h    }, 0, 0,      1.25,   0, {Mindestgeschwindigkeit für Pedalwertbegrenzung bei betätigter Bremse}
-0000, 10, TWPMBBR             , 1, {s       }, 0, 0,      0.01,   0, {Verzögerungszeit für Pedalwertbegrenzung bei betätigter Bremse}
-0000, 10, NFSM                , 1, {rpm     }, 0, 0,       10,    0, {Solldrehzahl Fahrstufenschalter ein}
-0000, 10, NFS2M               , 1, {rpm     }, 0, 0,       10,    0, {Solldrehzahl 2 Fahrstufenschalter ein}
-0000, 10, NLLM                , 1, {rpm     }, 0, 0,       10,    0, {Solldrehzahl}
-0000, 10, NLL2M               , 1, {rpm     }, 0, 0,       10,    0, {Solldrehzahl 2}
-0000, 10, NLLMG               , 1, {rpm     }, 0, 0,       10,    0, {Solldrehzahl}
-0000, 10, NLLMGFS             , 1, {rpm     }, 0, 0,       10,    0, {Solldrehzahl bei eingel. Fahrstufe für Automatikfahrzeuge}
-
-# ASR
-0000, 14, RAMPASR             , 2, {s       }, 0, 1,    655.36,   0, {Rampensteilheit bei Aufregelung des ASR-Moments}
-
 
 

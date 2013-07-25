@@ -12,3 +12,6 @@ B_ldipos	, {}	, 0x382763,	1,	0x02,	{}	, 0, 0,	1,		0, {}
 B_krldya	, {}	, 0x00FD8C,	2,	0x8000, {}	, 0, 0,	1,		0, {}
 B_krldyv	, {}	, 0x00FD8C,	2,	0x0004, {}	, 0, 0,	1,		0, {}
 ;B_tvars	, {}	, 0x00FD9E,	2,	0x????, {}	, 0, 0,	1,		0, {Bedingung Antiruckelfunktion dynamisch aktiv}
+
+B_ehfm		, {}	, 0x00FD66,	2,	0x0020, {}	, 0, 0, 1,		0, {}
+B_ehfm1		, {}	, 0x00FD66,	2,	0x0040, {}	, 0, 0, 1,		0, {}

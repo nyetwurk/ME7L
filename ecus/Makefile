@@ -1,7 +1,9 @@
 ECU=8D0907551M
 
-$(ECU).ecu: $(ECU)-dist.ecu torque.ecu extras.ecu
-	cat $(ECU)-dist.ecu torque.ecu extras.ecu > $(ECU).ecu
+all: $(ECU).ecu my_$(ECU).ecu
 
-$(ECU)-dist.ecu: ../defs/me7_alias.map ../defs/me7_std.map
-	../bin/ME7Info.exe -o 8D0907551M-dist.ecu ../images/$(ECU).bin
+$(ECU).ecu: ../defs/me7_alias.map ../defs/me7_std.map
+	../bin/ME7Info.exe -o 8D0907551M.ecu ../images/$(ECU).bin
+
+my_$(ECU).ecu: Makefile torque_$(ECU).ecu extras_$(ECU).ecu
+	cat torque_$(ECU).ecu extras_$(ECU).ecu > $@
