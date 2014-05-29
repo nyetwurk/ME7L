@@ -44,11 +44,11 @@ B_mdein                  , {}                                , 0x00FDA2,  2,  0x
 mizsolv_w                , {}                                , 0x382950,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {ind. torque for an ignition timing intervention before torque limiting}   
 miszul_w                 , {}                                , 0x3829EC,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {maximum permissible indicated torque}
 dmzms_w                  , {}                                , 0x382944,  2,  0x0000, {}        , 1, 0,   0.00152588,      0, {difference between internal nominal engine torque and permissible nominal torque}   
-B_sa                     , {CondFuelCutoff}                  , 0x00FDA4,  2,  0x8000, {}        , 0, 0,            1,      0, {Condition fuel cut-off}
+;B_sa                     , {CondFuelCutoff}                  , 0x00FDA4,  2,  0x8000, {}        , 0, 0,            1,      0, {Condition fuel cut-off}
 B_mibeg                  , {}                                , 0x00FDA4,  2,  0x0001, {}        , 0, 0,            1,      0, {condition torque limit active}
-mibas_w                  , {}                                , 0x382968,  2,  0x0000, {}        , 0, 0,   0.00152588,      0, {indicated basic torque}
+;mibas_w                  , {}                                , 0x382968,  2,  0x0000, {}        , 0, 0,   0.00152588,      0, {indicated basic torque}
 B_zwvzvb                 , {}                                , 0x00FDA4,  2,  0x0040, {}        , 0, 0,            1,      0, {condition for ignition angle intervention of torque interface before limitation}
-misol_w                  , {}                                , 0x00F9BC,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {optimum indicated torque}
+;misol_w                  , {}                                , 0x00F9BC,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {optimum indicated torque}
 mitebg_w                 , {}                                , 0x382BE8,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {torque value for minimum charge canister purge}
 milres_w                 , {}                                , 0x382960,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {torque request for air path including all torque reserves}
 B_kupplv                 , {CondClutchPedalSwitch}           , 0x00FD56,  2,  0x0200, {}        , 0, 0,            1,      0, {Condition clutch delayed}
@@ -70,12 +70,12 @@ B_zwget                  , {}                                , 0x00FDA4,  2,  0x
 TMVER_debounce_w         , {}                                , 0x382954,  2,  0x0000, {s}       , 0, 0,            1,      0, {Debounce time: ETC torque limitation is activ for a longer time}
 TVMIBEG_debounce         , {}                                , 0x382956,  1,  0x0000, {s}       , 0, 0,         0.01,      0, {debounce time for activation of ignition intervention during torque limitation}
 THDMB_debounce           , {}                                , 0x382957,  1,  0x0000, {s}       , 0, 0,            1,      0, {dwell time, healing for fault path for permanent torque limitation}
-B_zwvz                   , {}                                , 0x00FDA4,  2,  0x0020, {}        , 0, 0,            1,      0, {condition for ignition angle intervention of torque interface}
+;B_zwvz                   , {}                                , 0x00FDA4,  2,  0x0020, {}        , 0, 0,            1,      0, {condition for ignition angle intervention of torque interface}
 B_llrein                 , {}                                , 0x00FD9A,  2,  0x0400, {}        , 0, 0,            1,      0, {Condition idle speed control is active}
-dmar_w                   , {}                                , 0x382898,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {delta torque anti-jerk}
-miopt_w                  , {}                                , 0x38296C,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {optimum indicated torque}
+;dmar_w                   , {}                                , 0x382898,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {delta torque anti-jerk}
+;miopt_w                  , {}                                , 0x38296C,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {optimum indicated torque}
 etazwb                   , {}                                , 0x380CB4,  1,  0x0000, {%}       , 0, 0,          0.5,      0, {ignition angle effectiveness of basic ignition angle}
-dzwb   		         , {}                                , 0x380CAD,  1,  0x0000, {°KW}     , 1, 0,        -0.75,      0, {}
+dzwb		         , {}                                , 0x380CAD,  1,  0x0000, {°KW}     , 1, 0,        -0.75,      0, {}
 ;dmllr_w                  , {}                                , 0x3827F0,  2,  0x0000, {%}       , 1, 0,   0.00152588,      0, {desired torque change from the idle speed control (PD-part)}
 dmllr_w                  , {}                                , 0x3827F0,  2,  0x0000, {%}       , 1, 0,   0.00305176,      0, {desired torque change from the idle speed control (PD-part)}
 B_clmdb                  , {}                                , 0x383C42,  2,  0x0080, {}        , 0, 0,            1,      0, {Flag for clearence: ETC torque limitation is activ}
@@ -84,7 +84,7 @@ B_stend                  , {}                                , 0x00FDB0,  2,  0x
 
 ;ARMD
 mdverl_w                 , {EngineLossTorque}                , 0x382984,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {Resistant torque of the engine}
-mifa_w                   , {}                                , 0x38290A,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {desired indicated engine torque}
+;mifa_w                   , {}                                , 0x38290A,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {desired indicated engine torque}
 ;mkar_w                   , {}                                , 0x38289E,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {calculated clutch torque for anti-jerk function}
 mkar_w                   , {}                                , 0x38289E,  2,  0x0000, {%}       , 1, 0,   0.00305176,      0, {calculated clutch torque for anti-jerk function}
 mlast_w                  , {}                                , 0x3828A0,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {Estimated load moment}
@@ -142,11 +142,11 @@ abs_ndfil_w_ndfil_wk1    , {}                                , 0x3828E4,  2,  0x
 nmodiv_w                 , {}                                , 0x3828AC,  2,  0x0000, {}        , 0, 0,         0.25,      0, {calculated RPM from speed}
 B_last_wk                , {}                                , 0x00FD9E,  2,  0x0020, {}        , 0, 0,            1,      0, {B_wk previous state for rising edge}
 B_wk                     , {}                                , 0x00FD1A,  2,  0x0001, {}        , 0, 0,            1,      0, {condition: converter lockup clutch closed}
-B_stend                  , {}                                , 0x00FDB0,  2,  0x0002, {}        , 0, 0,            1,      0, {condition end of start}
+;B_stend                  , {}                                , 0x00FDB0,  2,  0x0002, {}        , 0, 0,            1,      0, {condition end of start}
 B_sa                     , {CondFuelCutoff}                  , 0x00FDA4,  2,  0x8000, {}        , 0, 0,            1,      0, {Condition fuel cut-off}
 B_kuppl                  , {CondClutchPedalSwitch}           , 0x00FD56,  2,  0x0100, {}        , 0, 0,            1,      0, {EGAS Condition cluch is disengaged}
 B_vfzg_hysteresis        , {}                                , 0x00FD9E,  2,  0x0010, {}        , 0, 0,            1,      0, {vfzg hysteresis active}
-B_ll                     , {}                                , 0x00FDA2,  2,  0x0002, {}        , 0, 0,            1,      0, {Condition idle}
+;B_ll                     , {}                                , 0x00FDA2,  2,  0x0002, {}        , 0, 0,            1,      0, {Condition idle}
 B_tmot_tmar              , {}                                , 0x00FD9E,  2,  0x0100, {}        , 0, 0,            1,      0, {tmot > TMAR}
 B_ar                     , {}                                , 0x00FD9C,  2,  0x0200, {}        , 0, 0,            1,      0, {condition anti-jerk active}
 ndar_init_switch         , {}                                , 0x3828B5,  1,  0x0000, {}        , 0, 0,            1,      0, {}
@@ -173,7 +173,7 @@ B_bit2_CWARMD            , {}                                , 0x00FD9E,  2,  0x
 B_bit3_CWARMD            , {}                                , 0x00FD9E,  2,  0x2000, {}        , 0, 0,            1,      0, {CWARMD bit 3}
 B_fgr                    , {}                                , 0x00FDA0,  2,  0x2000, {}        , 0, 0,            1,      0, {condition: driver’s set engine torque determined by cruise control}
 B_dashv                  , {}                                , 0x00FDA0,  2,  0x0080, {}        , 0, 0,            1,      0, {condition dashpot delayed}
-B_lsd                    , {}                                , 0x00FDA2,  2,  0x0020, {}        , 0, 0,            1,      0, {condition: limitation of positive torque gradient active}
+;B_lsd                    , {}                                , 0x00FDA2,  2,  0x0020, {}        , 0, 0,            1,      0, {condition: limitation of positive torque gradient active}
 ;dmar_w                  , {}                                , 0x382898,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {delta torque anti-jerk}
 dmar_w                   , {}                                , 0x382898,  2,  0x0000, {%}       , 1, 0,   0.00305176,      0, {delta torque anti-jerk}
 nmot_last_w              , {}                                , 0x3828B0,  2,  0x0000, {}        , 0, 0,         0.25,      0, {nmot value previous cycle for armd-kupgw}
