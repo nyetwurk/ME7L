@@ -19,7 +19,7 @@ B_nozwe                  , {}                                , 0x00FDC2,  2,  0x
 redist                   , {}                                , 0x380B92,  1,  0x0000, { }       , 0, 0,            1,      0, {real cylinder cut-off step}
 etazws                   , {}                                , 0x380D96,  1,  0x0000, {%}       , 0, 0,          0.5,      0, {nominal ignition angle effectiveness}
 dzws                     , {}                                , 0x380D95,  1,  0x0000, {°KW}     , 1, 0,        -0.75,      0, {difference ignition timing (between zwopt and zwsol)}
-zwopt                    , {}                                , 0x380CB6,  1,  0x0000, {°KW}     , 1, 0,         0.75,      0, {optimal ignition angle}
+;zwopt                    , {}                                , 0x380CB6,  1,  0x0000, {°KW}     , 1, 0,         0.75,      0, {optimal ignition angle}
 zwsol                    , {}                                , 0x380D97,  1,  0x0000, {°KW}     , 1, 0,         0.75,      0, {desired ignition angle from torque intervention}
 
 ;MDKOG
