@@ -23,8 +23,8 @@ dzws                     , {}                                , 0x380D95,  1,  0x
 zwsol                    , {}                                , 0x380D97,  1,  0x0000, {°KW}     , 1, 0,         0.75,      0, {desired ignition angle from torque intervention}
 
 ;MDKOG
-mimax_w                  , {}                                , 0x38293E,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {maximum attainable indicated torque}
-mifa_w                   , {}                                , 0x38290A,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {desired indicated engine torque}
+mimax_w                  , {TorqueLimit}                     , 0x38293E,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {maximum attainable indicated torque}
+mifa_w                   , {TorqueDesired}                   , 0x38290A,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {desired indicated engine torque}
 mifab_w                  , {}                                , 0x38294C,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {limited desired indicated engine torque}
 miasrs_w                 , {}                                , 0x3829C8,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {desired indicated torque from ASR for quick intervention}
 migs_w                   , {}                                , 0x38117E,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {desired indicated torque from GS for quick intervention}
@@ -36,13 +36,13 @@ minmx_w                  , {}                                , 0x3829AA,  2,  0x
 mivmx_w                  , {}                                , 0x3829F8,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {indicated nominal torque for VMAX control}   
 mibeg_w                  , {}                                , 0x382946,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {limit torque}   
 mimsr_w                  , {}                                , 0x3829CA,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {desired indicated torque from MSR}   
-misolv_w                 , {}                                , 0x38294E,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {indicated resultant nominal torque before torque limitation}   
+misolv_w                 , {TorqueBeforeLimitation}          , 0x38294E,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {indicated resultant nominal torque before torque limitation}   
 miasrl_w                 , {RequestedTorqueTractionControl}  , 0x3829C6,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {desired indicated torque from ASR for slow intervention}
 B_asr                    , {}                                , 0x00FDA2,  2,  0x4000, {}        , 0, 0,            1,      0, {condition for ASR active}
 B_msr                    , {}                                , 0x00FDA4,  2,  0x0002, {}        , 0, 0,            1,      0, {Condition MSR}
 B_mdein                  , {}                                , 0x00FDA2,  2,  0x8000, {}        , 0, 0,            1,      0, {Condition actions on the torque are active}
-mizsolv_w                , {}                                , 0x382950,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {ind. torque for an ignition timing intervention before torque limiting}   
-miszul_w                 , {}                                , 0x3829EC,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {maximum permissible indicated torque}
+mizsolv_w                , {TorqueForTimingIntervention}     , 0x382950,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {ind. torque for an ignition timing intervention before torque limiting}   
+miszul_w                 , {TorqueForTimingInterventionLimit}, 0x3829EC,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {maximum permissible indicated torque}
 dmzms_w                  , {}                                , 0x382944,  2,  0x0000, {}        , 1, 0,   0.00152588,      0, {difference between internal nominal engine torque and permissible nominal torque}   
 ;B_sa                     , {CondFuelCutoff}                  , 0x00FDA4,  2,  0x8000, {}        , 0, 0,            1,      0, {Condition fuel cut-off}
 B_mibeg                  , {}                                , 0x00FDA4,  2,  0x0001, {}        , 0, 0,            1,      0, {condition torque limit active}

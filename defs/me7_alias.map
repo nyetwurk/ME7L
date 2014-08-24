@@ -230,10 +230,11 @@ mdverb              , {}                                 , {Momentenbedarf der N
 mdverl_w            , {EngineLossTorque}                 , {Motor-Verlustmoment}
 miasrl_w            , {RequestedTorqueTractionControl}   , {Indiziertes Soll-Motormoment ASR für langsamen Eingriff}
 miext_w             , {}                                 , {von außen (ASR, GS, usw.) angefordertes indiziertes Motormoment}
+mifa_w              , {TorqueDesired}                    , {desired indicated engine torque}
 mifab_w             , {}                                 , {Begrenztes indiziertes Fahrerwunschmoment}
 miges_w             , {}                                 , {Indiziertes Soll-Motormoment für Getriebeschutz}
 misol_w             , {}                                 , {Indiziertes resultierendes Sollmoment}
-miszul_w            , {}                                 , {Maximal zulässiges indiziertes Moment}
+miszul_w            , {TorqueForTimingInterventionLimit} , {Maximal zulässiges indiziertes Moment}
 ml_w                , {}                                 , {Luftmassenfluß gefiltert (Word)}
 mldmn_w             , {}                                 , {minimale Luftmasse aus Kennfeld KFMLDMN}
 mldmx_w             , {}                                 , {maximale Luftmasse aus Kennfeld KFMLDMX}
