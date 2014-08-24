@@ -6,12 +6,20 @@ use Getopt::Std;
 use File::Basename;
 
 our $opt_t='example_template.cfg';
+our $opt_e=undef;
 
-getopts("t:") || die("usage: gen-cfg [-t template] list.lst ..");
+our $usage="usage: gen-cfg [-t template.cfg] [-e ecufile.ecu] list.lst ..";
 
-die("usage: gen-cfg [-t template] list.lst ..") unless (scalar(@ARGV)>=1);
+getopts("t:e:") || die($usage);
+
+die($usage) unless (scalar(@ARGV)>=1);
 
 open(TEMPLATE, '<', $opt_t) || die("Can't open $opt_t");
+
+if (defined($opt_e)) {
+    open(ECUFILE, '<', $opt_e) || die("Can't open $opt_e");
+}
+
 
 my %list;
 
@@ -23,6 +31,7 @@ foreach my $file (@ARGV) {
     %{$list{$fn}{'vars'}}=();
     while(<LIST>) {
 	chomp;
+	s{^\s+|\s+$}{}g;
 	${$list{$fn}{'vars'}}{$_}=1;
     }
     my $ofn = $dir.$fn.".cfg";
@@ -36,10 +45,15 @@ while(<TEMPLATE>) {
     while((my $fn, my $l) = each %list) {
 	my $out = $line;
 	for my $v (keys %{$l->{'vars'}}) {
-	    chomp $v;
 	    if ($out =~ s/^;$v(\s)/$v \1/) {
-		#print "got $v in $fn\n";
+		#print "found $v in $fn for $opt_t\n";
 		delete(${$list{$fn}{'vars'}}{$v});
+		break;
+	    }
+	    $v=~s/;//;
+	    if ($out =~ /^;$v(\s)/) {
+		#print "found ;$v in $fn for $opt_t\n";
+		delete(${$list{$fn}{'vars'}}{";$v"});
 		break;
 	    }
 	}
@@ -47,9 +61,27 @@ while(<TEMPLATE>) {
     }
 }
 
+if (defined($opt_e)) {
+    my @ary = map { chomp; [split ','] } <ECUFILE>;
+    foreach my $line (@ary) {
+	s{^\s+|\s+$}{}g foreach @{$line};
+	while((my $fn, my $l) = each %list) {
+	    for my $v (keys %{$l->{'vars'}}) {
+		my @ary = map {s/;//; $_} my @temp = $line->[0], $v;
+		if ($ary[0] eq $ary[1]) {
+		    #print "found missing $ary[0] from $fn in $opt_e\n";
+		    printf {$l->{'out'}} "%-18s;%-35s; %s\n", $line->[0], $line->[1], $line->[10];
+		    delete(${$list{$fn}{'vars'}}{$v});
+		    delete(${$list{$fn}{'vars'}}{";$v"});
+		}
+	    }
+	}
+    }
+}
+
 while((my $fn, my $l) = each %list) {
     for my $v (keys %{$l->{'vars'}}) {
-	#print "did not get $v in $fn\n";
+	print "did not get $v in $fn\n";
 	print {$l->{'out'}} "$v\n";
     }
 }
