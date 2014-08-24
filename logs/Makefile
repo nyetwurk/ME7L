@@ -2,7 +2,7 @@ all: typical.cfg adaptation.cfg
 
 ECU=8D0907551M
 #ECU=4Z7907551R
-COMMON=my_$(ECU)_template.cfg gen-cfg Makefile
+COMMON=my_$(ECU)_template.cfg gen-cfg Makefile ../ecus/my_$(ECU).ecu
 
 typical.cfg: typical.lst $(COMMON)
 adaptation.cfg: adaptation.lst $(COMMON)
