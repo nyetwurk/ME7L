@@ -67,12 +67,12 @@ if (defined($opt_e)) {
 	s{^\s+|\s+$}{}g foreach @{$line};
 	while((my $fn, my $l) = each %list) {
 	    for my $v (keys %{$l->{'vars'}}) {
-		my @ary = map {s/;//; $_} my @temp = $line->[0], $v;
-		if ($ary[0] eq $ary[1]) {
-		    #print "found missing $ary[0] from $fn in $opt_e\n";
-		    printf {$l->{'out'}} "%-18s;%-35s; %s\n", $line->[0], $line->[1], $line->[10];
+		my $v0 = $v;
+                $v0 =~ s/;//;
+		if ($line->[0] eq $v0) {
+		    #print "found missing $line->[0] ($v->$v0) from $fn in $opt_e\n";
+		    printf {$l->{'out'}} "%-18s;%-35s; %s\n", $v, $line->[1], $line->[10];
 		    delete(${$list{$fn}{'vars'}}{$v});
-		    delete(${$list{$fn}{'vars'}}{";$v"});
 		}
 	    }
 	}
