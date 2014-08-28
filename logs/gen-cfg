@@ -82,6 +82,6 @@ if (defined($opt_e)) {
 while((my $fn, my $l) = each %list) {
     for my $v (keys %{$l->{'vars'}}) {
 	print "did not get $v in $fn\n";
-	print {$l->{'out'}} "$v\n";
+	#print {$l->{'out'}} "$v\n";
     }
 }
