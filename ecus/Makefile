@@ -1,9 +1,15 @@
 ECU=8D0907551M
+#ECU=006410010A0
+#ECU=4Z7907551R
+#ECU=06A906032LP
 
 all: $(ECU).ecu my_$(ECU)-5120.ecu
 
 $(ECU).ecu: ../defs/me7_alias.map ../defs/me7_std.map
 	../bin/ME7Info.exe -o $(ECU).ecu ../images/$(ECU).bin
+
+torque_$(ECU).ecu extras_$(ECU).ecu:
+	touch $@
 
 my_$(ECU).ecu: Makefile $(ECU).ecu torque_$(ECU).ecu extras_$(ECU).ecu
 	cat $(ECU).ecu torque_$(ECU).ecu extras_$(ECU).ecu > $@
