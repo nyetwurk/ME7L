@@ -1,4 +1,4 @@
-all: typical.cfg adaptation.cfg
+all: typical.cfg typical-5120.cfg adaptation.cfg
 
 ECU=8D0907551M
 #ECU=4Z7907551R
@@ -16,3 +16,6 @@ my_$(ECU)_template.cfg: Makefile $(ECU)_template.cfg
 
 %.cfg: %.lst
 	./gen-cfg -t my_$(ECU)_template.cfg -e ../ecus/my_$(ECU).ecu $*.lst
+
+typical-5120.cfg: typical.cfg
+	sed -e 's/\([^[:space:]]\+\)\.ecu/\1-5120.ecu/' < $< > $@
