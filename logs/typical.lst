@@ -32,6 +32,8 @@ ldimx_w
 ;ldimxa_2
 ;ldimxa_3
 ;ldimxa_4
+ldimxak_w
+ldrlts_w
 lditv_w
 ldptv
 ldrdtv
@@ -84,8 +86,11 @@ ti_b1
 ti_b2
 tmotlin
 uhfm_w
+;ushk
+;ushk2
 usvk
 usvk2
+;uulsuv_w
 wdkba
 wkrdy
 ;wkrdya_0
