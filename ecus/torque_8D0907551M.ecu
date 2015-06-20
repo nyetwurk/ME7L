@@ -79,7 +79,7 @@ B_llrein                 , {}                                , 0x00FD9A,  2,  0x
 ;miopt_w                  , {}                                , 0x38296C,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {optimum indicated torque}
 etalab                   , {}                                , 0x380CB2,  1,  0x0000, {%}       , 0, 0,          0.5,      0, {lambda efficiency without intervention based on optimal torque during lambda=1?}
 etazwb                   , {}                                , 0x380CB4,  1,  0x0000, {%}       , 0, 0,          0.5,      0, {ignition angle efficiency of basic ignition angle}
-etazwbm                  , {}                                , 0x380CB5,  1,  0x0000, {%}       , 0, 0,          0.5,      0, {mean ignition angle efficiency of basic ignition angle?}
+;etazwbm                  , {}                                , 0x380CB5,  1,  0x0000, {%}       , 0, 0,          0.5,      0, {mean ignition angle efficiency of basic ignition angle?}
 dzwb		         , {}                                , 0x380CAD,  1,  0x0000, {°KW}     , 1, 0,        -0.75,      0, {}
 ;dmllr_w                  , {}                                , 0x3827F0,  2,  0x0000, {%}       , 1, 0,   0.00152588,      0, {desired torque change from the idle speed control (PD-part)}
 dmllr_w                  , {}                                , 0x3827F0,  2,  0x0000, {%}       , 1, 0,   0.00305176,      0, {desired torque change from the idle speed control (PD-part)}
