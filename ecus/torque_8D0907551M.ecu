@@ -43,6 +43,7 @@ B_msr                    , {}                                , 0x00FDA4,  2,  0x
 B_mdein                  , {}                                , 0x00FDA2,  2,  0x8000, {}        , 0, 0,            1,      0, {Condition actions on the torque are active}
 mizsolv_w                , {TorqueForTimingIntervention}     , 0x382950,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {ind. torque for an ignition timing intervention before torque limiting}   
 ;miszul_w                 , {TorqueForTimingInterventionLimit}, 0x3829EC,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {maximum permissible indicated torque}
+miszull_w                 , {}				      , 0x3829EA,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {maximum permissible indicated torque for air path?}
 dmzms_w                  , {}                                , 0x382944,  2,  0x0000, {}        , 1, 0,   0.00152588,      0, {difference between internal nominal engine torque and permissible nominal torque}   
 ;B_sa                     , {CondFuelCutoff}                  , 0x00FDA4,  2,  0x8000, {}        , 0, 0,            1,      0, {Condition fuel cut-off}
 ;B_mibeg                  , {}                                , 0x00FDA4,  2,  0x0001, {}        , 0, 0,            1,      0, {condition torque limit active}
@@ -51,6 +52,8 @@ B_zwvzvb                 , {}                                , 0x00FDA4,  2,  0x
 ;misol_w                  , {}                                , 0x00F9BC,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {optimum indicated torque}
 mitebg_w                 , {}                                , 0x382BE8,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {torque value for minimum charge canister purge}
 milres_w                 , {}                                , 0x382960,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {torque request for air path including all torque reserves}
+milsol_w                 , {}                                , 0x382964,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {torque request for air path capped by miszull?}
+milsolv_w                , {}                                , 0x382962,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {torque request for air path?}
 B_kupplv                 , {CondClutchPedalSwitch}           , 0x00FD56,  2,  0x0200, {}        , 0, 0,            1,      0, {Condition clutch delayed}
 ;B_ll                     , {}                                , 0x00FDA2,  2,  0x0002, {}        , 0, 0,            1,      0, {Condition idle}
 B_dash                   , {}                                , 0x00FDA0,  2,  0x0040, {}        , 0, 0,            1,      0, {condition: limitation of negative torque gradient active}
@@ -74,7 +77,9 @@ THDMB_debounce           , {}                                , 0x382957,  1,  0x
 B_llrein                 , {}                                , 0x00FD9A,  2,  0x0400, {}        , 0, 0,            1,      0, {Condition idle speed control is active}
 ;dmar_w                   , {}                                , 0x382898,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {delta torque anti-jerk}
 ;miopt_w                  , {}                                , 0x38296C,  2,  0x0000, {%}       , 0, 0,   0.00152588,      0, {optimum indicated torque}
-etazwb                   , {}                                , 0x380CB4,  1,  0x0000, {%}       , 0, 0,          0.5,      0, {ignition angle effectiveness of basic ignition angle}
+etalab                   , {}                                , 0x380CB2,  1,  0x0000, {%}       , 0, 0,          0.5,      0, {lambda efficiency without intervention based on optimal torque during lambda=1?}
+etazwb                   , {}                                , 0x380CB4,  1,  0x0000, {%}       , 0, 0,          0.5,      0, {ignition angle efficiency of basic ignition angle}
+etazwbm                  , {}                                , 0x380CB5,  1,  0x0000, {%}       , 0, 0,          0.5,      0, {mean ignition angle efficiency of basic ignition angle?}
 dzwb		         , {}                                , 0x380CAD,  1,  0x0000, {°KW}     , 1, 0,        -0.75,      0, {}
 ;dmllr_w                  , {}                                , 0x3827F0,  2,  0x0000, {%}       , 1, 0,   0.00152588,      0, {desired torque change from the idle speed control (PD-part)}
 dmllr_w                  , {}                                , 0x3827F0,  2,  0x0000, {%}       , 1, 0,   0.00305176,      0, {desired torque change from the idle speed control (PD-part)}
