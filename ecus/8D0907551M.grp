@@ -34,7 +34,7 @@ measgroup 028: 0001(nmot                ), 0002(rl                  ), 0050(tmot
 measgroup 029: 0000(----                ), 0000(----                ), 0000(----                ), 0000(----                )
 measgroup 030: 002F(                    ), 0030(                    ), 0031(                    ), 0032(                    )
 measgroup 031: 0025(usvk                ), 0027(ushk                ), 0026(usvk2               ), 0028(ushk2               )
-measgroup 032: 001F(                    ), 0021(fra_w               ), 0020(                    ), 0022(fra2_w              )
+measgroup 032: 001F(rkat_w              ), 0021(fra_w               ), 0020(rkat2_w             ), 0022(fra2_w              )
 measgroup 033: 001C(fr_w                ), 0025(usvk                ), 001D(fr2_w               ), 0026(usvk2               )
 measgroup 034: 0001(nmot                ), 0134(tabgm               ), 006B(tpsvkmf_w           ), 006F(sfplsv              )
 measgroup 035: 0001(nmot                ), 0135(tabgm2              ), 006C(tpsvkmf2_w          ), 0070(                    )
